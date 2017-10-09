@@ -1,10 +1,9 @@
-
 extern crate rand;
 
 use rand::Rng;
 
 fn main() {
-    let secret_number = rand::thread_rng().gen_range(1,101);
+    let secret_number: u8 = rand::thread_rng().gen_range(1, 101);
 
     println!("Guess the number!");
     //println!("Secret Number is: {}", secret_number);  // Debug statement
@@ -14,21 +13,20 @@ fn main() {
 
         let mut guess = String::new();
 
-        std::io::stdin().read_line(&mut guess).expect("Failed to read line");
+        std::io::stdin()
+            .read_line(&mut guess)
+            .expect("Failed to read line");
         println!("You guessed: {}", guess);
 
         // Lets us contiue even if input is not a number
-        let guess: u32 = match guess.trim().parse(){ //.expect("Please type a number!");
-            Ok(num) => num,
-            Err(_)  => continue,
-        }  ;
-
-        match guess.cmp(&secret_number) {
-            std::cmp::Ordering::Less    => println!("To small!"),
-            std::cmp::Ordering::Greater => println!("To big!"),
-            std::cmp::Ordering::Equal   => {
-                println!("You win!");
-                break;
+        if let Ok(guess) = guess.trim().parse() as Result<u8, _> {
+            match guess.cmp(&secret_number) {
+                std::cmp::Ordering::Less => println!("Too small!"),
+                std::cmp::Ordering::Greater => println!("Too big!"),
+                std::cmp::Ordering::Equal => {
+                    println!("You win!");
+                    break;
+                }
             }
         }
     }
