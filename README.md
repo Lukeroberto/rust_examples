@@ -1,2 +1,2 @@
 # rust_examples
-Working examamples of the rust programming language.
+Working examples of the rust programming language.
