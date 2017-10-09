@@ -1,0 +1,1 @@
+/home/luke/mit_workspace/rust_examples/communicator/target/debug/libcommunicator.rlib: /home/luke/mit_workspace/rust_examples/communicator/src/network/server.rs /home/luke/mit_workspace/rust_examples/communicator/src/client.rs /home/luke/mit_workspace/rust_examples/communicator/src/network/mod.rs /home/luke/mit_workspace/rust_examples/communicator/src/lib.rs
